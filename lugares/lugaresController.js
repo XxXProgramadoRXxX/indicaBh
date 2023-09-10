@@ -9,6 +9,7 @@ const LugaresModel = require("../Database/lugares")
 
 //busca completa
 router.get("/lugares", (req, res) => {
+    console.log(LugaresModel)
     LugaresModel.find({}).then( lugares => {
         res.json(lugares)
     }).catch(err => {
