@@ -5,6 +5,7 @@ const app = express()
 const bodyParaser = require("body-parser")
 
 const lugaresController = require("./lugares/lugaresController")
+const cors = require("cors")
 
 //req = requisição dados enviados pelo usuarios
 //res = respostax
@@ -14,6 +15,8 @@ const lugaresController = require("./lugares/lugaresController")
 
 app.use(bodyParaser.urlencoded({extends: false}))
 app.use(bodyParaser.json())
+
+app.use(cors())
 
 const port = process.env.PORT || 7000
 
