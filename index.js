@@ -15,6 +15,8 @@ const lugaresController = require("./lugares/lugaresController")
 app.use(bodyParaser.urlencoded({extends: false}))
 app.use(bodyParaser.json())
 
+const port = process.env.PORT || 5000
+
 app.use("/", lugaresController)
 app.get("/", (req, res) => {
     res.statusCode = 200
@@ -26,7 +28,7 @@ app.get("/env", (req, res) => {
     res.send(data)
 })
 
-app.listen(process.env.PORT, (err) => {
+app.listen(port, (err) => {
     if(err){
         console.log("[+] Error ao iniciar servidor [+]")
     }else{
