@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const lugaresModel = require("./Models/LugaresModel")
 
-const url = process.env.DATABSE_URL
+const url = process.env.DATABSE_URL || "mongodb+srv://rambodopc:EzcCiAtG6UJicJmr@cluster0.3v8zifq.mongodb.net/?retryWrites=true&w=majority"
 
 mongoose.connect(url, ({useNewUrlParser: true, useUnifiedTopology: true}))
 
