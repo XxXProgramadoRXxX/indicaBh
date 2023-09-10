@@ -9,7 +9,6 @@ const LugaresModel = require("../Database/lugares")
 
 //busca completa
 router.get("/lugares", (req, res) => {
-    console.log(LugaresModel)
     LugaresModel.find({}).then( lugares => {
         res.json(lugares)
     }).catch(err => {
@@ -20,7 +19,6 @@ router.get("/lugares", (req, res) => {
 //buscanome
 router.get("/lugares/:nome", (req, res) => {
     const nome = req.params.nome 
-    console.log(nome)
     LugaresModel.find({nome:nome}).then((lugar) => {
         res.json(lugar)
     }).catch(err => {
@@ -47,8 +45,9 @@ router.post("/lugares", (req, res) => {
 })
 
 //deleta
-router.delete("/lugares", (req, res) => {
-    LugaresModel.findByIdAndDelete("64fd67703ee1e070e0db6804").then(() => {
+router.delete("/lugares/:id", (req, res) => {
+    const id = req.params.id
+    LugaresModel.findByIdAndDelete(id).then(() => {
         req.statusCode = 200
         res.json({message: "Deletado"})
     }).catch(err => {
