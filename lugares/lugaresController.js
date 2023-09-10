@@ -28,12 +28,15 @@ router.get("/lugares/:nome", (req, res) => {
 
 //cria
 router.post("/lugares", (req, res) => {
-    var {nome, localizacao, url_foto} = req.body
+    var {nome, localizacao, url_foto, estrela, desc, tags} = req.body
 
     const lugares = new LugaresModel({
         nome: nome,
         localizacao: localizacao,
-        url_foto:url_foto
+        url_foto:url_foto,
+        estrela: estrela,
+        desc: desc,
+        tags: tags
     })
 
     lugares.save().then(() =>{
